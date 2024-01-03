@@ -54,8 +54,8 @@ class _RootPageState extends State<RootPage> {
     required VoidCallback onTap,
   }) {
     return ListTile(
-      leading: Icon(icon,color:Colors.white),
-      title: Text(title,style: TextStyle(color:Colors.white)),
+      leading: Icon(icon,color:Constants.primaryColor),
+      title: Text(title,style: TextStyle(color:Constants.primaryColor)),
       onTap: onTap,
     );
   }
@@ -73,7 +73,7 @@ class _RootPageState extends State<RootPage> {
     return AdvancedDrawer(
       openRatio: 0.55,
       openScale: 0.80,
-      backdropColor: Constants.primaryColor,
+      backdropColor: Colors.grey.shade200,
       rtlOpening: false,
       animationCurve: Curves.easeInOut,
       animationDuration: Duration(milliseconds: 500),
@@ -81,12 +81,13 @@ class _RootPageState extends State<RootPage> {
       drawer: SafeArea(
         child: Column(
           children: [
-            IconButton(
-              onPressed: () {
-                // Existing IconButton functionality
-              },
-              icon: const Icon(Icons.verified_user),
-            ),
+            // CircleAvatar(
+            //   radius: 72,
+            //   backgroundImage: ,
+            // ),
+            SizedBox(height: 12,),
+            Image.asset("assets/images/greengrove.png",height:80),
+            SizedBox(height: 52,),
             // New Drawer Items
             _buildDrawerItem(
               icon: Icons.insert_chart,
@@ -166,7 +167,7 @@ class _RootPageState extends State<RootPage> {
             onPressed: () {
               drawerControl();
             },
-            icon: const Icon(Icons.menu),
+            icon: const Icon(Icons.menu, color: Color(0xff296e48) ),
           ),
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           elevation: 0.0,

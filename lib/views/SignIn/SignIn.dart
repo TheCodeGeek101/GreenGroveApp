@@ -157,7 +157,7 @@ class SignIn extends StatelessWidget {
                   child: Text.rich(
                     TextSpan(children: [
                       TextSpan(
-                        text: 'New to Planty? ',
+                        text: 'New to Green Grove? ',
                         style: TextStyle(
                           color: Constants.blackColor,
                         ),
