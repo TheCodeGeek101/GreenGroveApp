@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
-
+import 'package:lottie/lottie.dart';
 import '../../Utils/constants.dart';
 import '../SignIn/SignIn.dart';
 class OnboardingScreen extends StatefulWidget {
@@ -28,12 +28,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     // TODO: implement build
       final pages = [
         Container(
-        color: Colors.grey.shade400,
+        color: Colors.grey.shade300,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children:[
-              Image.asset("assets/images/greengrove.png"),
+              // Image.asset("assets/images/greengrove.png"),
+              Lottie.network(
+                "https://lottie.host/f58f21b4-774a-4ea5-bbdb-df5c18f9e0e9/YlP65xM7my.json",
+                height:350,
+                width:350,
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal:20),
                 child: Column(
@@ -127,7 +132,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children:[
-                  Image.asset("assets/images/plant-two.png",height:300),
+                  // Image.asset("assets/images/plant-two.png",height:300),
+                  Lottie.network(
+                    "https://lottie.host/81bee3e4-5679-42a2-bf90-8703ceab5ca3/g174EA1yJg.json",
+                    height:350,
+                    width:350,
+                  ),
                   Padding(
                       padding: EdgeInsets.symmetric(horizontal:20),
                       child: Column(
@@ -175,12 +185,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             )
         ),
         Container(
-            color: Colors.grey.shade400,
+            color: Colors.grey.shade300,
             child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children:[
-                  Image.asset("assets/images/plant-three.png",height:300),
+                  // Image.asset("assets/images/plant-three.png",height:300),
+                  Lottie.network(
+                    "https://lottie.host/d61e7a83-6ef8-4ab2-a522-c5401b2db856/C0x7vMc1HW.json",
+                    height:350,
+                    width:350,
+                  ),
                   Padding(
                       padding: EdgeInsets.symmetric(horizontal:20),
                       child: Column(
@@ -233,7 +248,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children:[
-                  Image.asset("assets/images/plant-four.png",height:300),
+                  // Image.asset("assets/images/plant-four.png",height:300),
+                  Lottie.network(
+                    "https://lottie.host/37f784d6-2607-4235-9317-64f8f04bf47f/B2N2DilK5l.json",
+                    height:350,
+                    width:350,
+                  ),
                   Padding(
                       padding: EdgeInsets.symmetric(horizontal:20),
                       child: Column(
