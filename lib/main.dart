@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green_grove/views/Onboarding/Onboarding.dart';
+import 'package:green_grove/views/Onboarding/OnboardingScreen.dart';
 
 
 void main(){
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Onboarding Screen',
       home: OnboardingScreen(),
       debugShowCheckedModeBanner: false,

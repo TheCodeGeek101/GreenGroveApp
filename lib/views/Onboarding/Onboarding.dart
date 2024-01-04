@@ -4,14 +4,14 @@ import '../../Utils/constants.dart';
 import '../SignIn/SignIn.dart';
 
 
-class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({Key? key}) : super(key: key);
+class Onboarding extends StatefulWidget {
+  const Onboarding({Key? key}) : super(key: key);
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  State<Onboarding> createState() => _OnboardingState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _OnboardingState extends State<Onboarding> {
   final PageController _pageController = PageController(initialPage: 0);
   int currentIndex = 0;
 
