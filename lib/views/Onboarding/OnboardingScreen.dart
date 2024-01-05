@@ -28,7 +28,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     // TODO: implement build
       final pages = [
         Container(
-        color: Colors.grey.shade300,
+         decoration: BoxDecoration(
+           gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+             colors: [Colors.white, Constants.primaryColor],
+           )
+         ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -48,7 +54,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       'Welcome to GreenGrove!',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Constants.primaryColor,
+                        color: Colors.white,
                         fontSize: 25,
                       ),
                     ),
@@ -59,7 +65,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       'Discover a revolutionary way to track and reduce your carbon footprint. '
                           'Join us on a journey towards sustainable living and make a positive impact on the planet.'
                     ,
-                      style: TextStyle(color: Constants.primaryColor),
+                      style: TextStyle(color: Colors.white),
                     ),
                     SizedBox(
                       height: 50,
@@ -82,7 +88,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     SizedBox(
                       height:20
                     ),
-                    Center(child: Text('Swipe left to continue...',style:TextStyle(color:Constants.primaryColor))),
+                    Center(child: Text('Swipe left to continue...',style:TextStyle(color:Colors.white))),
                     SizedBox(
                         height:20
                     ),
@@ -112,7 +118,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             TextSpan(
                               text: 'techbythembinkosi.com',
                               style: TextStyle(
-                                color: Constants.primaryColor,
+                                color: Colors.white,
                               ),
                             ),
                           ]),
@@ -185,7 +191,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             )
         ),
         Container(
-            color: Colors.grey.shade300,
+            // color: Colors.grey.shade300,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors:[Colors.white,Constants.primaryColor],
+            )
+    ),
             child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -205,7 +218,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               'Cultivate a Greener Tomorrow',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Constants.primaryColor,
+                                color: Colors.white,
                                 fontSize: 25,
                               ),
                             ),
@@ -216,7 +229,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                              'GreenGrove empowers you to adopt sustainable practices. Learn about eco-friendly farming,'
                                  ' contribute to challenges, and earn rewards. Together, let\'s cultivate a greener, healthier future'
                               ,
-                              style: TextStyle(color: Constants.primaryColor),
+                              style: TextStyle(color: Colors.white),
                             ),
                             SizedBox(
                               height: 50,
@@ -273,6 +286,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             Text(
                               'Be part of a community committed to environmental stewardship. Share your sustainable journey,'
                                   ' connect with like-minded individuals in our forum, and together, let\'s turn every small action into a big change.'
+                                  'Ready to make a difference? Let\'s embark on this green adventure with GreenGrove!'
                               ,
                               style: TextStyle(color: Colors.white),
                             ),
@@ -310,7 +324,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         slideIconWidget: Icon(
           Icons.arrow_back_ios,
           size: 30,
-          color: Colors.white,
+          color: Colors.green,
         )
       )
     );
