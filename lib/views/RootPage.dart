@@ -4,8 +4,8 @@ import 'package:page_transition/page_transition.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import '../Utils/constants.dart';
 import '../models/plant.dart';
+import 'Carbon Footprint Tracker/CarbonFootprintTracker.dart';
 import 'Cart/CartPage.dart';
-import 'Favourites/Favourites.dart';
 import 'Home/HomeScreen.dart';
 import 'Profile/ProfilePage.dart';
 import 'ScanPage.dart';
@@ -31,7 +31,7 @@ class _RootPageState extends State<RootPage> {
       HomeScreen(),
       // FavoritePage(favoritedPlants: favorites),
       Stats(),
-      CartPage(addedToCartPlants: myCart),
+      CarbonFootprintTracker(),
       const ProfilePage(),
     ];
   }
@@ -39,14 +39,14 @@ class _RootPageState extends State<RootPage> {
   List<IconData> iconList = [
     Icons.home,
     Icons.analytics_sharp,
-    Icons.shopping_cart,
+    Icons.track_changes,
     Icons.person,
   ];
 
   List<String> titleList = [
     'Home',
     'Statistics',
-    'Cart',
+    'Carbon Tracker',
     'Profile',
   ];
 
@@ -66,8 +66,6 @@ class _RootPageState extends State<RootPage> {
     final List<Plant> favoritedPlants = Plant.getFavoritedPlants();
     final List<Plant> addedToCartPlants = Plant.addedToCartPlants();
 
-    favorites = favoritedPlants;
-    myCart = addedToCartPlants.toSet().toList();
   }
 
   @override
@@ -83,10 +81,6 @@ class _RootPageState extends State<RootPage> {
       drawer: SafeArea(
         child: Column(
           children: [
-            // CircleAvatar(
-            //   radius: 72,
-            //   backgroundImage: ,
-            // ),
             SizedBox(height: 12,),
             Image.asset("assets/images/greengrove.png",height:80),
             SizedBox(height: 52,),
@@ -157,7 +151,7 @@ class _RootPageState extends State<RootPage> {
               Text(
                 titleList[_bottomNavIndex],
                 style: TextStyle(
-                  color: Constants.blackColor,
+                  color: Constants.primaryColor,
                   fontWeight: FontWeight.w500,
                   fontSize: 24,
                 ),
