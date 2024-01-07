@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:green_grove/views/Home/widgets/CarbonFootprintIndicator.dart';
 import 'package:green_grove/views/Home/widgets/Statistics.dart';
 import 'package:page_transition/page_transition.dart';
 import '../../Utils/constants.dart';
@@ -37,7 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-             CarbonFootprintBarChart(),
+             // CarbonFootprintBarChart(),
+              CarbonFootprintIndicator(),
               Container(
                 padding: const EdgeInsets.only(left: 16, bottom: 20, top: 20),
                 child: const Text(
