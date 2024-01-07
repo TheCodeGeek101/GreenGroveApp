@@ -32,13 +32,6 @@ class _CarbonFootprintIndicatorState extends State<CarbonFootprintIndicator> {
 
     return Container(
       color: Colors.white,
-      // decoration: BoxDecoration(
-      //     gradient: LinearGradient(
-      //         begin:Alignment.topLeft,
-      //         end: Alignment.bottomRight,
-      //         colors:[Colors.grey.shade300,Constants.primaryColor],
-      //     )
-      // ),
       child: Center(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -46,32 +39,38 @@ class _CarbonFootprintIndicatorState extends State<CarbonFootprintIndicator> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               CircularPercentIndicator(
-                radius: 150,
-                animation:true,
-                animationDuration: 1500,
-                lineWidth: 20,
-                percent:0.6,
-                progressColor: Constants.primaryColor,
-                backgroundColor: Colors.green.shade200,
-                circularStrokeCap: CircularStrokeCap.round,
-                center: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 100),
-                    const Text(
-                      "CO2",
-                      style: TextStyle(fontSize: 20, color: Color(0xff296e48)),
-                    ),
-                     Text(
-                      "${carbonFootprint}Kg",
-                      style: TextStyle(fontSize: 45, color: Color(0xff296e48)),
-                    ),
-                    const Text(
-                      "so far this week ",
-                      style: TextStyle(fontSize: 20, color: Color(0xff296e48)),
-                    ),
-                  ],
-                )
+                  radius: 100,
+                  animation:true,
+                  animationDuration: 1500,
+                  lineWidth: 20,
+                  percent:0.6,
+                  progressColor: Constants.primaryColor,
+                  backgroundColor: Colors.green.shade200,
+                  circularStrokeCap: CircularStrokeCap.round,
+                  center: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 30),
+                      const Text(
+                        "CO2",
+                        style: TextStyle(fontSize: 15, color: Color(0xff296e48)),
+                      ),
+                      Text(
+                        "${carbonFootprint}Kg",
+                        style: TextStyle(fontSize: 35, color: Color(0xff296e48)),
+                      ),
+                      const Text(
+                        "so far this week ",
+                        style: TextStyle(fontSize: 15, color: Color(0xff296e48)),
+                      ),
+                    ],
+                  )
+              ),
+              SizedBox(height:20),
+              Text(
+                  'Monitor your carbon footprint and stay aware of your Impact!',
+                  style: TextStyle(color:Constants.primaryColor
+                  )
               ),
               SizedBox(height: 9),
               Text("${percent}% of Carbon Footprint", style: TextStyle(color: Constants.primaryColor)),

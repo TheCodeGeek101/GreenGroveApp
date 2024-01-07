@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import '../../Utils/constants.dart';
-import '../../models/plant.dart';
-import '../Details/DetailsScreen.dart';
 
-class PlantWidget extends StatelessWidget {
-  const PlantWidget({
-    Key? key, required this.index, required this.plantList,
-  }) : super(key: key);
+import '../../../Utils/constants.dart';
+import '../../../models/Rewards.dart';
+import '../../Details/DetailsScreen.dart';
 
+class RewardsWidget extends StatelessWidget {
   final int index;
-  final List<Plant> plantList;
+  final List<Rewards> rewardsList;
+  RewardsWidget({ required this.index, required this.rewardsList});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +20,7 @@ class PlantWidget extends StatelessWidget {
             context,
             PageTransition(
                 child: DetailPage(
-                  plantId: plantList[index].plantId,
+                  plantId: rewardsList[index].rewardsId,
                 ),
                 type: PageTransitionType.bottomToTop));
       },
@@ -57,7 +55,7 @@ class PlantWidget extends StatelessWidget {
                   child: SizedBox(
                     height: 80.0,
                     child:
-                    Image.asset(plantList[index].imageURL),
+                    Image.asset(rewardsList[index].imageURL),
                   ),
                 ),
                 Positioned(
@@ -66,9 +64,9 @@ class PlantWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(plantList[index].category),
+                      Text(rewardsList[index].milestone),
                       Text(
-                        plantList[index].plantName,
+                        rewardsList[index].reward,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -80,17 +78,8 @@ class PlantWidget extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
-              padding: const EdgeInsets.only(right: 10),
-              child: Text(
-                r'$' + plantList[index].price.toString(),
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18.0,
-                  color: Constants.primaryColor,
-                ),
-              ),
-            )
+
+
           ],
         ),
       ),

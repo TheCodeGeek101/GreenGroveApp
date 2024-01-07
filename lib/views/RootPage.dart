@@ -9,6 +9,7 @@ import 'Favourites/Favourites.dart';
 import 'Home/HomeScreen.dart';
 import 'Profile/ProfilePage.dart';
 import 'ScanPage.dart';
+import 'Statistics/Stats.dart';
 
 class RootPage extends StatefulWidget {
   const RootPage({Key? key}) : super(key: key);
@@ -28,7 +29,8 @@ class _RootPageState extends State<RootPage> {
   List<Widget> _widgetOptions() {
     return [
       HomeScreen(),
-      FavoritePage(favoritedPlants: favorites),
+      // FavoritePage(favoritedPlants: favorites),
+      Stats(),
       CartPage(addedToCartPlants: myCart),
       const ProfilePage(),
     ];
@@ -36,14 +38,14 @@ class _RootPageState extends State<RootPage> {
 
   List<IconData> iconList = [
     Icons.home,
-    Icons.favorite,
+    Icons.analytics_sharp,
     Icons.shopping_cart,
     Icons.person,
   ];
 
   List<String> titleList = [
     'Home',
-    'Favorite',
+    'Statistics',
     'Cart',
     'Profile',
   ];

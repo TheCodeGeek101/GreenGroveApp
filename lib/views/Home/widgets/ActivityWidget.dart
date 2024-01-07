@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import '../../Utils/constants.dart';
-import '../../models/plant.dart';
-import '../Details/DetailsScreen.dart';
 
-class PlantWidget extends StatelessWidget {
-  const PlantWidget({
-    Key? key, required this.index, required this.plantList,
-  }) : super(key: key);
+import '../../../Utils/constants.dart';
+import '../../../models/Activities.dart';
+import '../../Details/DetailsScreen.dart';
 
+class ActivityWidget extends StatelessWidget {
   final int index;
-  final List<Plant> plantList;
+  final List<Activities> activityList;
+
+  ActivityWidget({
+    Key? key, required this.index, required this.activityList,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class PlantWidget extends StatelessWidget {
             context,
             PageTransition(
                 child: DetailPage(
-                  plantId: plantList[index].plantId,
+                  plantId: activityList[index].activityId,
                 ),
                 type: PageTransitionType.bottomToTop));
       },
@@ -57,7 +58,7 @@ class PlantWidget extends StatelessWidget {
                   child: SizedBox(
                     height: 80.0,
                     child:
-                    Image.asset(plantList[index].imageURL),
+                    Image.asset(activityList[index].imageURL),
                   ),
                 ),
                 Positioned(
@@ -66,9 +67,9 @@ class PlantWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(plantList[index].category),
+                      Text(activityList[index].activity),
                       Text(
-                        plantList[index].plantName,
+                        activityList[index].effect,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -80,17 +81,17 @@ class PlantWidget extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
-              padding: const EdgeInsets.only(right: 10),
-              child: Text(
-                r'$' + plantList[index].price.toString(),
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18.0,
-                  color: Constants.primaryColor,
-                ),
-              ),
-            )
+            // Container(
+            //   padding: const EdgeInsets.only(right: 10),
+            //   child: Text(
+            //     r'$' + activityList[index].price.toString(),
+            //     style: TextStyle(
+            //       fontWeight: FontWeight.bold,
+            //       fontSize: 18.0,
+            //       color: Constants.primaryColor,
+            //     ),
+            //   ),
+            // )
           ],
         ),
       ),

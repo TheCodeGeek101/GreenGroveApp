@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import '../../Utils/constants.dart';
-import '../../models/plant.dart';
-import '../Details/DetailsScreen.dart';
 
-class PlantWidget extends StatelessWidget {
-  const PlantWidget({
-    Key? key, required this.index, required this.plantList,
-  }) : super(key: key);
+import '../../../Utils/constants.dart';
+import '../../../models/Recommendations.dart';
+import '../../Details/DetailsScreen.dart';
 
+class RecommendationsWidget extends StatelessWidget {
   final int index;
-  final List<Plant> plantList;
+  final List<Recommendations> recommendationsList;
+  RecommendationsWidget({ required this.index, required this.recommendationsList});
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +16,13 @@ class PlantWidget extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            PageTransition(
-                child: DetailPage(
-                  plantId: plantList[index].plantId,
-                ),
-                type: PageTransitionType.bottomToTop));
+        // Navigator.push(
+        //     context,
+        //     PageTransition(
+        //         child: DetailPage(
+        //           plantId: recommendationsList[index].recommendationsId,
+        //         ),
+        //         type: PageTransitionType.bottomToTop));
       },
       child: Container(
         decoration: BoxDecoration(
@@ -57,7 +55,7 @@ class PlantWidget extends StatelessWidget {
                   child: SizedBox(
                     height: 80.0,
                     child:
-                    Image.asset(plantList[index].imageURL),
+                    Image.asset(recommendationsList[index].imageUrl),
                   ),
                 ),
                 Positioned(
@@ -66,9 +64,9 @@ class PlantWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(plantList[index].category),
+                      Text(recommendationsList[index].recommendation),
                       Text(
-                        plantList[index].plantName,
+                        recommendationsList[index].effect,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -80,17 +78,8 @@ class PlantWidget extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
-              padding: const EdgeInsets.only(right: 10),
-              child: Text(
-                r'$' + plantList[index].price.toString(),
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18.0,
-                  color: Constants.primaryColor,
-                ),
-              ),
-            )
+
+
           ],
         ),
       ),
