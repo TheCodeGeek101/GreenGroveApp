@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green_grove/views/Profile/widgets/Profile.dart';
+import 'package:green_grove/pages/Profile/widgets/Profile.dart';
 
 import '../../Utils/constants.dart';
 

@@ -42,6 +42,7 @@ dependencies:
   lottie: ^2.7.0
   fl_chart: ^0.66.0
   percent_indicator: ^4.2.3
+  font_awesome_flutter: ^10.6.0
 
 dev_dependencies:
   flutter_test:

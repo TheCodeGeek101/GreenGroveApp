@@ -1,8 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:green_grove/views/Home/widgets/ActivityWidget.dart';
-import 'package:green_grove/views/Home/widgets/CarbonFootprintIndicator.dart';
-import 'package:green_grove/views/Statistics/Widgets/Statistics.dart';
+import 'package:green_grove/pages/Home/widgets/ActivityWidget.dart';
+import 'package:green_grove/pages/Home/widgets/CarbonFootprintIndicator.dart';
+import 'package:green_grove/pages/Statistics/Widgets/Statistics.dart';
 import 'package:page_transition/page_transition.dart';
 import '../../Utils/constants.dart';
 import '../../models/Activities.dart';

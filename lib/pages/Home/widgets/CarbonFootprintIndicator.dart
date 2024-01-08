@@ -73,7 +73,7 @@ class _CarbonFootprintIndicatorState extends State<CarbonFootprintIndicator> {
                   )
               ),
               SizedBox(height: 9),
-              Text("${percent}% of Carbon Footprint", style: TextStyle(color: Constants.primaryColor)),
+              Text("${percent}% of Carbon Footprint reduction", style: TextStyle(color: Constants.primaryColor)),
               LinearPercentIndicator(
                   animation:true,
                   animationDuration:3000,

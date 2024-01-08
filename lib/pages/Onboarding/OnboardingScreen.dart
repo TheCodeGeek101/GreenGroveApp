@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:green_grove/views/Onboarding/widgets/Community.dart';
-import 'package:green_grove/views/Onboarding/widgets/Cultivate.dart';
-import 'package:green_grove/views/Onboarding/widgets/Tracking.dart';
-import 'package:green_grove/views/Onboarding/widgets/Welcome.dart';
+import 'package:green_grove/pages/Onboarding/widgets/Community.dart';
+import 'package:green_grove/pages/Onboarding/widgets/Cultivate.dart';
+import 'package:green_grove/pages/Onboarding/widgets/Tracking.dart';
+import 'package:green_grove/pages/Onboarding/widgets/Welcome.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:lottie/lottie.dart';
 import '../../Utils/constants.dart';

@@ -1,15 +1,16 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:green_grove/pages/SignIn/SignIn.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import '../Utils/constants.dart';
-import '../models/plant.dart';
 import 'Carbon Footprint Tracker/CarbonFootprintTracker.dart';
-import 'Cart/CartPage.dart';
+import 'Educational Hub/EducationalHub.dart';
 import 'Home/HomeScreen.dart';
 import 'Profile/ProfilePage.dart';
 import 'ScanPage.dart';
 import 'Statistics/Stats.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RootPage extends StatefulWidget {
   const RootPage({Key? key}) : super(key: key);
@@ -21,15 +22,12 @@ class RootPage extends StatefulWidget {
 final advancedDrawerController = AdvancedDrawerController();
 
 class _RootPageState extends State<RootPage> {
-  List<Plant> favorites = [];
-  List<Plant> myCart = [];
 
   int _bottomNavIndex = 0;
 
   List<Widget> _widgetOptions() {
     return [
       HomeScreen(),
-      // FavoritePage(favoritedPlants: favorites),
       Stats(),
       CarbonFootprintTracker(),
       const ProfilePage(),
@@ -62,12 +60,6 @@ class _RootPageState extends State<RootPage> {
     );
   }
 
-  void _updateLists() {
-    final List<Plant> favoritedPlants = Plant.getFavoritedPlants();
-    final List<Plant> addedToCartPlants = Plant.addedToCartPlants();
-
-  }
-
   @override
   Widget build(BuildContext context) {
     return AdvancedDrawer(
@@ -79,68 +71,96 @@ class _RootPageState extends State<RootPage> {
       animationDuration: Duration(milliseconds: 500),
       controller: advancedDrawerController,
       drawer: SafeArea(
-        child: Column(
+        child:SingleChildScrollView(
+    child:
+        Column(
           children: [
-            SizedBox(height: 12,),
+            SizedBox(height: 5,),
             Image.asset("assets/images/greengrove.png",height:80),
-            SizedBox(height: 52,),
+            SizedBox(height: 32,),
             // New Drawer Items
             _buildDrawerItem(
-              icon: Icons.insert_chart,
-              title: 'Carbon History',
-              onTap: () {
-                // Handle navigation to Carbon Footprint History screen
-              },
-            ),
-            _buildDrawerItem(
-              icon: Icons.compare,
-              title: 'Product Comparisons',
+              icon: FontAwesomeIcons.book,
+              title: 'Education Hub',
               onTap: () {
                 // Handle navigation to Product Comparisons screen
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (_) => EducationalHub()));
               },
             ),
-            _buildDrawerItem(
-              icon: Icons.eco,
-              title: 'Sustainable Practices',
-              onTap: () {
-                // Handle navigation to Sustainable Practices screen
-              },
-            ),
+            // _buildDrawerItem(
+            //   icon: Icons.eco,
+            //   title: 'Carbon offset programs',
+            //   onTap: () {
+            //     // Handle navigation to Sustainable Practices screen
+            //     // Navigator.pushReplacement(context,
+            //     //     MaterialPageRoute(builder: (_) => const SignIn()));
+            //   },
+            // ),
 
             // ... add more Drawer Items for additional features
             _buildDrawerItem(
-              icon: Icons.forum,
+              icon: Icons.people,
               title: 'Community Forum',
               onTap: () {
                 // Handle navigation to Community Forum screen
               },
             ),
-
             _buildDrawerItem(
-              icon: Icons.trending_up,
-              title: 'Impact Insights',
+              icon: Icons.person_add,
+              title: 'Invite friends',
+              onTap: () {
+                // Handle navigation to Community Forum screen
+              },
+            ),
+            _buildDrawerItem(
+              icon: Icons.feedback,
+              title: 'Feedback & Support',
               onTap: () {
                 // Handle navigation to Impact Insights screen
               },
             ),
 
             _buildDrawerItem(
-              icon: Icons.emoji_events,
-              title: 'Challenges & Rewards',
+              icon: FontAwesomeIcons.bullseye,
+              title: 'Goals & Challenges',
               onTap: () {
                 // Handle navigation to Challenges and Rewards screen
               },
             ),
+            // _buildDrawerItem(
+            //   icon: Icons.new_releases,
+            //   title: 'News & Updates',
+            //   onTap: () {
+            //     // Handle navigation to News and Updates screen
+            //   },
+            // ),
             _buildDrawerItem(
-              icon: Icons.new_releases,
-              title: 'News & Updates',
+              icon: Icons.settings,
+              title: 'Settings',
               onTap: () {
                 // Handle navigation to News and Updates screen
               },
             ),
-
+            _buildDrawerItem(
+              icon: Icons.help,
+              title: 'Help center',
+              onTap: () {
+                // Handle navigation to Impact Insights screen
+              },
+            ),
+            _buildDrawerItem(
+              icon: Icons.exit_to_app,
+              title: 'Log out',
+              onTap: () {
+                // Handle navigation to News and Updates screen
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (_) => SignIn()));
+              },
+            ),
 
           ],
+        ),
         ),
       ),
       child: Scaffold(
@@ -197,7 +217,7 @@ class _RootPageState extends State<RootPage> {
           onTap: (index) {
             setState(() {
               _bottomNavIndex = index;
-              _updateLists();
+              // _updateLists();
             });
           },
         ),

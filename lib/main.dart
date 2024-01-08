@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green_grove/views/Onboarding/OnboardingScreen.dart';
+import 'package:green_grove/pages/Onboarding/OnboardingScreen.dart';
 
 
 void main(){

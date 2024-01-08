@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green_grove/models/Rewards.dart';
-import 'package:green_grove/views/Statistics/Widgets/RecommendationsWidget.dart';
+import 'package:green_grove/pages/Statistics/Widgets/RecommendationsWidget.dart';
 import '../../models/Recommendations.dart';
 import 'Widgets/RewardsWidget.dart';
 import 'Widgets/Statistics.dart';
