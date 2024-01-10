@@ -5,6 +5,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import '../Utils/constants.dart';
 import 'Carbon Footprint Tracker/CarbonFootprintTracker.dart';
+import 'Community/CommunityForum.dart';
 import 'Educational Hub/EducationalHub.dart';
 import 'Home/HomeScreen.dart';
 import 'Profile/ProfilePage.dart';
@@ -104,6 +105,8 @@ class _RootPageState extends State<RootPage> {
               title: 'Community Forum',
               onTap: () {
                 // Handle navigation to Community Forum screen
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (_) => CommunityForumPage()));
               },
             ),
             _buildDrawerItem(

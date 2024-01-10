@@ -43,6 +43,14 @@ dependencies:
   fl_chart: ^0.66.0
   percent_indicator: ^4.2.3
   font_awesome_flutter: ^10.6.0
+  flutter_chat_ui: ^1.6.10
+  image_picker: ^1.0.6
+  path_provider: ^2.1.1
+  mime: ^1.0.4
+  uuid: ^4.2.2
+  open_filex: ^4.3.4
+  bubble: ^1.2.1
+  file_picker: ^6.1.1
 
 dev_dependencies:
   flutter_test:
