@@ -15,86 +15,85 @@ class Stats extends StatefulWidget {
 }
 
 class _StatsState extends State<Stats> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  List<Recommendations> _recommendationsList = Recommendations.recommendationsList;
+  List<Rewards> _rewardsList = Rewards.rewardsList;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    List<Recommendations> _recommendationsList = Recommendations.recommendationsList;
-    List<Rewards> _rewardsList = Rewards.rewardsList;
+
     return Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CarbonFootprintBarChart(),
-              Container(
-                padding: const EdgeInsets.only(left: 16, bottom: 20, top: 20),
-                child: const Text(
-                  'Recommendations',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
-                  ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                height: size.height * .5,
-                child: ListView.builder(
-                    itemCount: _recommendationsList.length,
-                    scrollDirection: Axis.vertical,
-                    physics: const BouncingScrollPhysics(),
-                    itemBuilder: (BuildContext context, int index) {
-                      return GestureDetector(
-                          onTap: (){
-                            // Navigator.push(context, PageTransition(child: DetailPage(plantId: _plantList[index].plantId), type: PageTransitionType.bottomToTop));
-                          },
-                          child:
-                          RecommendationsWidget(
-                              index: index,
-                              recommendationsList: _recommendationsList
-                          )
-                      );
-                    }),
-              ),
-              Container(
-                padding: const EdgeInsets.only(left: 16, bottom: 20, top: 10),
-                child: const Text(
-                  'Rewards',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
-                  ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                height: size.height * .5,
-                child: ListView.builder(
-                    itemCount: _rewardsList.length,
-                    scrollDirection: Axis.vertical,
-                    physics: const BouncingScrollPhysics(),
-                    itemBuilder: (BuildContext context, int index) {
-                      return GestureDetector(
-                          onTap: (){
-                            // Navigator.push(context, PageTransition(child: DetailPage(plantId: _plantList[index].plantId), type: PageTransitionType.bottomToTop));
-                          },
-                          child: RewardsWidget(index: index,rewardsList: _rewardsList,)
-                      );
-                    }),
-              ),
-            ],
-          ),
-        )
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CarbonFootprintBarChart(),
+            _buildSectionTitle('Recommendations'),
+            _buildRecommendationsList(size),
+            _buildSectionTitle('Rewards'),
+            _buildRewardsList(size),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSectionTitle(String title) {
+    return Container(
+      padding: const EdgeInsets.only(left: 16, bottom: 20, top: 20),
+      child: Text(
+        title,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 18.0,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildRecommendationsList(Size size) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      height: size.height * .5,
+      child: ListView.builder(
+        itemCount: _recommendationsList.length,
+        scrollDirection: Axis.vertical,
+        physics: const BouncingScrollPhysics(),
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              // Navigator.push(context, PageTransition(child: DetailPage(plantId: _plantList[index].plantId), type: PageTransitionType.bottomToTop));
+            },
+            child: RecommendationsWidget(
+              index: index,
+              recommendationsList: _recommendationsList,
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildRewardsList(Size size) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      height: size.height * .5,
+      child: ListView.builder(
+        itemCount: _rewardsList.length,
+        scrollDirection: Axis.vertical,
+        physics: const BouncingScrollPhysics(),
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              // Navigator.push(context, PageTransition(child: DetailPage(plantId: _plantList[index].plantId), type: PageTransitionType.bottomToTop));
+            },
+            child: RewardsWidget(
+              index: index,
+              rewardsList: _rewardsList,
+            ),
+          );
+        },
+      ),
     );
   }
 }
