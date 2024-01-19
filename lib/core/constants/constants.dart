@@ -1,0 +1,1 @@
+const String carbonFootprintBaseUrl = "http://localhost:5000";
