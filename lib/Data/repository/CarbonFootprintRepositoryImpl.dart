@@ -8,39 +8,41 @@ import '../models/CarbonFootprintModel.dart';
 class CarbonFootprintRepositoryImpl implements CarbonFootprintRepository {
   final CarbonFootprintApiService _carbonFootprintApiService;
 
-
-
   CarbonFootprintRepositoryImpl(this._carbonFootprintApiService);
 
   @override
-  Future<DataState<List<CarbonFootprintModel>>> predictCarbonFootprints(data) async {
+  Future<DataState<List<CarbonFootprintModel>>> predictCarbonFootprints({
+    required String activityType,
+    required double quantity,
+    required String vehicleType,
+    required double distance,
+    required double fuelEfficiency,
+    required String foodType,
+  }) async {
     try {
-      // Create a list of CarbonFootprintModel instances
-      final carbonFootprintActivities = {
+      final httpResponse = await _carbonFootprintApiService.predictCarbonFootprint(
+        activityType,
+        quantity,
+        vehicleType,
+        distance,
+        fuelEfficiency,
+        foodType,
+      );
 
-      }
-
-      // Call the API service method with the list as the request body
-      final httpResponse = await _carbonFootprintApiService.predictCarbonFootprints(data);
-      
-      if(httpResponse.response.statusCode == HttpStatus.ok){
+      if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSuccess(httpResponse.data);
-      }
-      else {
+      } else {
         return DataFailed(
           DioError(
             error: httpResponse.response.statusMessage,
             response: httpResponse.response,
-            type: DioErrorType.response,
-            requestOptions: httpResponse.response.requestOptions
-          )
+            requestOptions: httpResponse.response.requestOptions ?? RequestOptions(),
+          ),
         );
       }
-
-      // Handle the httpResponse and return the appropriate DataState
-      // (Success, Error, Loading, etc.) based on the response
     } catch (e) {
       // Handle errors and return an appropriate DataState
+      return DataFailed(DioError(error: e.toString(), requestOptions: RequestOptions()));
     }
   }
 }

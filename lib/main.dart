@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:green_grove/injection_container.dart';
 import 'package:green_grove/presentation/pages/Onboarding/OnboardingScreen.dart';
 
 
-void main(){
+Future<void> main() async {
+ await initializeDependencies();
   runApp(MyApp());
 }
 

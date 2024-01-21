@@ -22,11 +22,17 @@ class _CarbonFootprintApiService implements CarbonFootprintApiService {
 
   @override
   Future<HttpResponse<List<CarbonFootprintModel>>> predictCarbonFootprint(
-      {required List<CarbonFootprintModel> carbonFootprintActivities}) async {
+    String activityType,
+    double quantity,
+    String vehicleType,
+    double distance,
+    double fuelEfficiency,
+    String foodType,
+  ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = carbonFootprintActivities.map((e) => e.toJson()).toList();
+    final _data = activityType;
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<HttpResponse<List<CarbonFootprintModel>>>(Options(
       method: 'POST',

@@ -16,7 +16,7 @@ Future<void> initializeDependencies() async {
     sl.registerSingleton<CarbonFootprintApiService>(CarbonFootprintApiService(sl()));
 
     sl.registerSingleton<CarbonFootprintRepository>(
-      CarbonFootprintRepositoryImpl(sl())
+      CarbonFootprintRepositoryImpl(sl()) as CarbonFootprintRepository
     );
 
     // Usecases
