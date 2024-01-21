@@ -1,3 +1,4 @@
+// Import necessary dependencies and files
 import 'dart:html';
 import 'package:dio/dio.dart';
 import 'package:green_grove/Data/data_sources/remote/carbon_footprint_api_service.dart';
@@ -5,11 +6,15 @@ import 'package:green_grove/Domain/repository/CarbonFootprintRepository.dart';
 import 'package:green_grove/core/resources/data_state.dart';
 import '../models/CarbonFootprintModel.dart';
 
+// Repository implementation for interacting with carbon footprint data
 class CarbonFootprintRepositoryImpl implements CarbonFootprintRepository {
+  // Instance of CarbonFootprintApiService for making API requests
   final CarbonFootprintApiService _carbonFootprintApiService;
 
+  // Constructor to initialize the repository with the API service
   CarbonFootprintRepositoryImpl(this._carbonFootprintApiService);
 
+  // Method for predicting carbon footprints based on user input
   @override
   Future<DataState<List<CarbonFootprintModel>>> predictCarbonFootprints({
     required String activityType,
@@ -20,6 +25,7 @@ class CarbonFootprintRepositoryImpl implements CarbonFootprintRepository {
     required String foodType,
   }) async {
     try {
+      // Call the retrofit API to post data
       final httpResponse = await _carbonFootprintApiService.predictCarbonFootprint(
         activityType,
         quantity,
@@ -29,9 +35,13 @@ class CarbonFootprintRepositoryImpl implements CarbonFootprintRepository {
         foodType,
       );
 
+      // If the data is posted successfully
       if (httpResponse.response.statusCode == HttpStatus.ok) {
         return DataSuccess(httpResponse.data);
-      } else {
+      }
+
+      // If the request is not successful
+      else {
         return DataFailed(
           DioError(
             error: httpResponse.response.statusMessage,
