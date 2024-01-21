@@ -3,9 +3,10 @@ import 'package:green_grove/injection_container.dart';
 import 'package:green_grove/presentation/pages/Onboarding/OnboardingScreen.dart';
 
 
-Future<void> main() async {
- await initializeDependencies();
+Future<void> main() async  {
   runApp(MyApp());
+  await initializeDependencies();
+
 }
 
 class MyApp extends StatelessWidget {

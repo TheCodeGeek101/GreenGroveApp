@@ -1,4 +1,5 @@
 // Import necessary dependencies and files
+import 'package:dio/dio.dart';
 import 'package:dio/src/dio_exception.dart';
 import 'package:green_grove/Domain/usecases/predict_carbon_footprints.dart';
 import 'package:green_grove/core/resources/data_state.dart';
@@ -35,13 +36,13 @@ class RemoteCarbonFootprintsBloc
       } else {
         // Handle the case when datastate is DataSuccess but the data is empty
         emit(
-          RemoteCarbonFootprintError('Empty data received' as DioError),
+          RemoteCarbonFootprintError(DioException(requestOptions: RequestOptions())),
         );
       }
     } catch (e) {
       // Handle errors here
       emit(
-        RemoteCarbonFootprintError('An error occurred: $e' as DioError),
+        RemoteCarbonFootprintError(DioException(requestOptions: RequestOptions())),
       );
     }
   }

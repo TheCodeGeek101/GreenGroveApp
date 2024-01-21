@@ -1,5 +1,6 @@
 // Import necessary dependencies and files
-import 'dart:html';
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:green_grove/Data/data_sources/remote/carbon_footprint_api_service.dart';
 import 'package:green_grove/Domain/repository/CarbonFootprintRepository.dart';
@@ -43,16 +44,16 @@ class CarbonFootprintRepositoryImpl implements CarbonFootprintRepository {
       // If the request is not successful
       else {
         return DataFailed(
-          DioError(
+          DioException(
             error: httpResponse.response.statusMessage,
             response: httpResponse.response,
-            requestOptions: httpResponse.response.requestOptions ?? RequestOptions(),
+            requestOptions: httpResponse.response.requestOptions,
           ),
         );
       }
     } catch (e) {
       // Handle errors and return an appropriate DataState
-      return DataFailed(DioError(error: e.toString(), requestOptions: RequestOptions()));
+      return DataFailed(DioException(error: e.toString(), requestOptions: RequestOptions()));
     }
   }
 }

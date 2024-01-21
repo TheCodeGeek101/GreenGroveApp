@@ -33,7 +33,7 @@ class _CarbonFootprintApiService implements CarbonFootprintApiService {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = activityType;
-    final _result = await _dio.fetch<List<dynamic>>(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<HttpResponse<List<CarbonFootprintModel>>>(Options(
       method: 'POST',
       headers: _headers,
@@ -50,7 +50,7 @@ class _CarbonFootprintApiService implements CarbonFootprintApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    var value = _result.data!
+    List<CarbonFootprintModel> value = _result.data!['carbonFootprint']
         .map((dynamic i) =>
             CarbonFootprintModel.fromJson(i as Map<String, dynamic>))
         .toList();

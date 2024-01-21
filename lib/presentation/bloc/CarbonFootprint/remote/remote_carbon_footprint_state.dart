@@ -7,10 +7,10 @@ import 'package:green_grove/Domain/entities/CarbonFootprint.dart';
 abstract class RemoteCarbonFootprintState extends Equatable {
   // List of carbon footprints and DioError representing the state
   final List<CarbonFootprintEntity>? carbonFootprints;
-  final DioError? error;
+  final DioException ? error;
 
   // Constructor for creating instances of RemoteCarbonFootprintState
-  const RemoteCarbonFootprintState({this.carbonFootprints, this.error});
+  const RemoteCarbonFootprintState({this.carbonFootprints,  this.error});
 
   // Override to provide a list of properties for equatability
   List<Object> get props => [carbonFootprints!, error!];
@@ -29,5 +29,5 @@ class RemoteCarbonFootprintDone extends RemoteCarbonFootprintState {
 
 // Error state indicating a failure in the remote operation with an associated DioError
 class RemoteCarbonFootprintError extends RemoteCarbonFootprintState {
-  const RemoteCarbonFootprintError(DioError error) : super(error: error);
+  const RemoteCarbonFootprintError(DioException error) : super(error: error);
 }

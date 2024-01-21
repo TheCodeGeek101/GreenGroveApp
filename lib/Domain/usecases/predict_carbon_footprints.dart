@@ -1,4 +1,5 @@
 // Import necessary dependencies and files
+import 'package:green_grove/Data/repository/CarbonFootprintRepositoryImpl.dart';
 import 'package:green_grove/core/resources/data_state.dart';
 import 'package:green_grove/core/usecases/usecase.dart';
 import 'package:green_grove/Domain/entities/CarbonFootprint.dart';
@@ -9,7 +10,7 @@ import 'package:green_grove/presentation/bloc/CarbonFootprint/remote/remote_carb
 class PredictCarbonFootprintUseCase
     implements UseCase<DataState<List<CarbonFootprintEntity>>, PredictUserCarbonFootprints> {
   // Repository responsible for interacting with the data layer (backend)
-  final CarbonFootprintRepository _carbonFootprintRepository;
+  final CarbonFootprintRepositoryImpl _carbonFootprintRepository;
 
   // Constructor to initialize the use case with the repository
   PredictCarbonFootprintUseCase(this._carbonFootprintRepository);
