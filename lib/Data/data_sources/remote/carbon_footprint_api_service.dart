@@ -12,7 +12,5 @@ abstract class CarbonFootprintApiService {
    factory CarbonFootprintApiService(Dio dio) = _CarbonFootprintApiService;
 
    @POST('/predict')
-  Future<HttpResponse<List<CarbonFootprintModel>>> predictCarbonFootprint({
-   @Body() List<CarbonFootprintModel> carbonFootprintActivities
-  });
+  Future<HttpResponse<List<CarbonFootprintModel>>> predictCarbonFootprints(data);
 }
